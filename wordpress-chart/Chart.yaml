@@ -1,0 +1,6 @@
+apiversion: v2
+name: wordpress
+description: Wordpress with MariaDB on Kubernetes, migrated from docker-compose
+type: application
+version: 0.1.0 # charts version
+appVersion: "6.4" # version of the software being deployed- 'wordpress'

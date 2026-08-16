@@ -1,0 +1,13 @@
+replicaCount: 2
+
+ingress:
+  host: wordpress.local
+image:
+  repository: 992382545251.dkr.ecr.us-east-1.amazonaws.com/rotem-repo
+  wordpressTag: wordpress
+  mariadbTag: mariadb
+  pullSecret: ecr-creds
+
+storage:
+  wordpress: 5Gi
+  database: 5Gi
