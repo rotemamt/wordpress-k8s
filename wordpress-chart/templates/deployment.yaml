@@ -17,6 +17,8 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.wordpressTag }}"
         ports:
         - containerPort: 80
+        resources:
+          {{- toYaml .Values.resources.wordpress | nindent 10 }}
         env:
         - name: WORDPRESS_DB_HOST
           value: db

@@ -38,6 +38,8 @@ spec:
         volumeMounts:
         - name: db-data
           mountPath: /var/lib/mysql
+        resources:
+          {{- toYaml .Values.resources.database | nindent 10 }}
       imagePullSecrets:
       - name: {{ .Values.image.pullSecret }}
   volumeClaimTemplates:
