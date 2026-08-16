@@ -24,8 +24,18 @@ spec:
         - name: WORDPRESS_DB_USER
           value: wordpress
         - name: WORDPRESS_DB_PASSWORD
-          value: wordpress
+          valueFrom:
+            secretKeyRef:
+              name:  wordpress-secret
+              key: mysql-password
         - name: WORDPRESS_DB_NAME
           value: wordpress
+        volumeMounts:
+        - name: wp-data
+          mountPath: /var/www/html
       imagePullSecrets:
       - name: ecr-creds
+      volumes:
+      - name: wp-data
+        persistentVolumeClaim:
+          claimName: wordpress-data
