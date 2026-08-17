@@ -19,6 +19,18 @@ spec:
         - containerPort: 80
         resources:
           {{- toYaml .Values.resources.wordpress | nindent 10 }}
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 20
         env:
         - name: WORDPRESS_DB_HOST
           value: db

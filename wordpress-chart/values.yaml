@@ -15,14 +15,14 @@ storage:
 resources:
   wordpress:
     requests:
-      cpu: 250m
-      memory: 256Mi
+      cpu: 100m
+      memory: 128Mi
     limits:
       cpu: 500m
       memory: 512Mi
   database:
     requests:
-      cpu: 250m
+      cpu: 100m
       memory: 256Mi
     limits:
       cpu: 500m
