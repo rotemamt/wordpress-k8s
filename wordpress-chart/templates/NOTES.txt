@@ -1,0 +1,22 @@
+WordPress has been installed as release "{{ .Release.Name }}" in namespace "{{ .Release.Namespace }}".
+
+1. Watch the pods come up:
+
+   kubectl get pods -n {{ .Release.Namespace }} -w
+
+   The WordPress pods stay 0/1 until their readiness probe passes, which needs
+   the database to be reachable first.
+
+2. Test through the ingress:
+
+   curl -I -H "Host: {{ .Values.ingress.host }}" http://$(minikube ip)
+
+   A 302 redirect means WordPress is running and connected to MariaDB.
+
+3. Reach it from a browser by adding "{{ .Values.ingress.host }}" to your hosts
+   file and tunnelling port 80 of the minikube IP.
+
+Reminder: this chart does NOT create secrets. Both must exist in the namespace
+before installing:
+  - wordpress-secret  (database passwords, see secret.yaml.example)
+  - {{ .Values.image.pullSecret }}  (ECR credentials, token expires after 12h)

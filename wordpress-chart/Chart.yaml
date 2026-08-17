@@ -1,4 +1,4 @@
-apiversion: v2
+apiVersion: v2
 name: wordpress
 description: Wordpress with MariaDB on Kubernetes, migrated from docker-compose
 type: application

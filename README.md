@@ -109,7 +109,7 @@ Everything configurable is in `wordpress-chart/values.yaml`:
 | `ingress.host` | `wordpress.local` | Hostname the app answers on |
 | `storage.wordpress` | `5Gi` | Disk for `/var/www/html` |
 | `storage.database` | `5Gi` | Disk for `/var/lib/mysql` |
-| `resources.*` | 100m / 128Mi requested, 500m / 512Mi limit | CPU and memory |
+| `resources.*` | requests 100m CPU / 128–256Mi, limits 500m CPU / 512Mi | CPU and memory |
 
 Change a value for one install only, without editing files:
 
